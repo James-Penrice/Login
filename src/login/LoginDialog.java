@@ -6,6 +6,8 @@
 
 package login;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author huihuilei
@@ -103,10 +105,32 @@ public class LoginDialog extends javax.swing.JDialog {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        
+        // Check the account
+        String account = this.jTextFieldAccount.getText();
+        if (account == null || "".equals(account)) {
+            JOptionPane.showMessageDialog(this, "Please input your account");
+            return;
+        }
+
+        // Check the password
+        String password = String.valueOf(this.jPasswordFieldPassword.getPassword());
+        if (password == null || "".equals(password)) {
+            JOptionPane.showMessageDialog(this, "Please input your password");
+            return;
+        }
+        
+        // Authenticate
+        if ("test".equals(account) && "test".equals(password)) {
+            JOptionPane.showMessageDialog(this, "OK");
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed");
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
 
