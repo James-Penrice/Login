@@ -8,7 +8,7 @@ package login;
 
 /**
  *
- * @author huihuilei
+ * @author James-Penrice
  */
 public class Login {
 

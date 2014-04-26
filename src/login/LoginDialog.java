@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author huihuilei
+ * @author James-Penrice
  */
 public class LoginDialog extends javax.swing.JDialog {
 
@@ -108,20 +108,20 @@ public class LoginDialog extends javax.swing.JDialog {
         
         // Check the account
         String account = this.jTextFieldAccount.getText();
-        if (account == null || "".equals(account)) {
+        if (Utils.isEmptyString(account)) {
             JOptionPane.showMessageDialog(this, "Please input your account");
             return;
         }
 
         // Check the password
         String password = String.valueOf(this.jPasswordFieldPassword.getPassword());
-        if (password == null || "".equals(password)) {
+        if (Utils.isEmptyString(password)) {
             JOptionPane.showMessageDialog(this, "Please input your password");
             return;
         }
         
         // Authenticate
-        if ("test".equals(account) && "test".equals(password)) {
+        if (AuthService.getInstance().auth(account, password)) {
             JOptionPane.showMessageDialog(this, "OK");
         } else {
             JOptionPane.showMessageDialog(this, "Failed");
