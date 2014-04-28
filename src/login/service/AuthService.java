@@ -37,7 +37,7 @@ public class AuthService {
         }
 
         if (!"test".equals(password)) {
-            throw new AuthenticationException(AuthenticationException.ErrorCode.ACCOUNT_NOT_FOUND);
+            throw new AuthenticationException(AuthenticationException.ErrorCode.WRONG_PASSWORD);
         }
 
     }
