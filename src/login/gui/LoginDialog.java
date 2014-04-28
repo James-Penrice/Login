@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 
-package login;
+package login.gui;
 
 import javax.swing.JOptionPane;
+import login.Exception.AuthenticationException;
+import login.service.AuthService;
+import login.utils.Utils;
 
 /**
  *
@@ -121,10 +124,11 @@ public class LoginDialog extends javax.swing.JDialog {
         }
         
         // Authenticate
-        if (AuthService.getInstance().auth(account, password)) {
+        try {
+            AuthService.getInstance().auth(account, password);
             JOptionPane.showMessageDialog(this, "OK");
-        } else {
-            JOptionPane.showMessageDialog(this, "Failed");
+        } catch (AuthenticationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getErrorCode());
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 

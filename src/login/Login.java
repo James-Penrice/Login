@@ -6,6 +6,8 @@
 
 package login;
 
+import login.gui.LoginDialog;
+
 /**
  *
  * @author James-Penrice

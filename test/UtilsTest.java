@@ -6,11 +6,11 @@
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import login.Utils;
+import login.utils.Utils;
 
 /**
  *
- * @author huihuilei
+ * @author James-Penrice
  */
 public class UtilsTest extends TestCase {
     

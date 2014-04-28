@@ -6,7 +6,8 @@
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import login.AuthService;
+import login.Exception.AuthenticationException;
+import login.service.AuthService;
 
 /**
  *
@@ -36,14 +37,37 @@ public class AuthServiceTest extends TestCase {
     }
     
     public void test_auth001() {
-        Assert.assertEquals(AuthService.getInstance().auth("test", "1"), false);
+        try {
+            AuthService.getInstance().auth("test2", "test");
+            Assert.fail();
+        } catch (AuthenticationException ex) {
+            Assert.assertEquals(ex.getErrorCode(), AuthenticationException.ErrorCode.ACCOUNT_FROZEN);
+        }
     }
     
     public void test_auth002() {
-        Assert.assertEquals(AuthService.getInstance().auth("test1", "test"), false);
+        try {
+            AuthService.getInstance().auth("test1", "test");
+            Assert.fail();
+        } catch (AuthenticationException ex) {
+            Assert.assertEquals(ex.getErrorCode(), AuthenticationException.ErrorCode.ACCOUNT_NOT_FOUND);
+        }
     }
     
     public void test_auth003() {
-        Assert.assertEquals(AuthService.getInstance().auth("test", "test"), true);
+        try {
+            AuthService.getInstance().auth("test", "test2");
+            Assert.fail();
+        } catch (AuthenticationException ex) {
+            Assert.assertEquals(ex.getErrorCode(), AuthenticationException.ErrorCode.WRONG_PASSWORD);
+        }
+    }
+    
+    public void test_auth004() {
+        try {
+            AuthService.getInstance().auth("test", "test");
+        } catch (AuthenticationException ex) {
+            Assert.fail();
+        }
     }
 }
