@@ -5,7 +5,7 @@ import login.service.AuthService;
 
 /**
  *
- * @james-penrice
+ * @author James-Penrice
  */
 public class AuthServiceTest extends TestCase {
     
