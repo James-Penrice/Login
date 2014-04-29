@@ -1,5 +1,4 @@
 
-
 import junit.framework.Assert;
 import junit.framework.TestCase;
 import login.Exception.AuthenticationException;
@@ -7,7 +6,7 @@ import login.service.AuthService;
 
 /**
  *
- * @James Penrice
+ * @james-penrice
  */
 public class AuthServiceTest extends TestCase {
     
