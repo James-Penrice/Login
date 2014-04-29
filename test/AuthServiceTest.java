@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -11,7 +7,7 @@ import login.service.AuthService;
 
 /**
  *
- * @author huihuilei
+ * @James Penrice
  */
 public class AuthServiceTest extends TestCase {
     
