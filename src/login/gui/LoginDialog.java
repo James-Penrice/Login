@@ -9,6 +9,7 @@ package login.gui;
 import javax.swing.JOptionPane;
 import login.Exception.AuthenticationException;
 import login.service.AuthService;
+import login.service.AuthServiceImpl;
 import login.utils.Utils;
 
 /**
@@ -125,7 +126,7 @@ public class LoginDialog extends javax.swing.JDialog {
         
         // Authenticate
         try {
-            AuthService.getInstance().auth(account, password);
+            AuthServiceImpl.getInstance().auth(account, password);
             JOptionPane.showMessageDialog(this, "OK");
         } catch (AuthenticationException ex) {
             JOptionPane.showMessageDialog(this, ex.getErrorCode());
